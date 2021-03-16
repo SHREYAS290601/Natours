@@ -1,0 +1,47 @@
+.composition{
+    position: relative;
+   
+    &__photo{
+        width: 60%;
+        box-shadow: 0 2rem 3rem rgba($color-black,0.4);
+        border-radius: 2px;
+        transition: all 0.2s ease-out;
+        
+        &--p1{
+            position: absolute;
+            top: -6.5rem;
+            left: 6rem;
+            z-index: 1;
+            &:hover{
+                z-index: 4;
+                transform: scale(1.05);
+                box-shadow: 0 2.5rem 3.5rem rgba($color-black,0.4);
+            }
+        }
+        &--p2{
+            position: absolute;
+            top: 12rem;
+            left: -2rem;
+            z-index: 3;
+            &:hover{
+                z-index: 4;
+                transform: scale(1.2);
+            }
+        }
+        &--p3{
+            position: absolute;
+            right: -6.5rem;
+            top: 9rem;
+            z-index: 2;
+            &:hover{
+                z-index: 4;
+                transform: scale(1.2); 
+            }
+        }
+    }
+    &:hover &__photo:not(:hover){
+        transform: scale(.95);
+        filter: blur(1px) brightness(80%);;
+        -webkit-filter: blur(1px) brightness(80%);;
+    }
+}
