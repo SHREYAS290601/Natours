@@ -31,9 +31,31 @@
     font-size: 16px;
     line-height:1.7;
     color: #777;
-    padding: 15px;;
     }
 
+//mixin for word spacing at phone size and port
+@include Respond(tab_port){
+    .heading-primary{
+        &--main{
+            letter-spacing: 2rem;
+        }
+        &--sub{
+    word-spacing: 0;
+    letter-spacing: 1rem;
+        }
+    }
+}
+@include Respond(phone){
+    .heading-primary{
+        &--main{
+            letter-spacing: 0.5rem;
+        }
+        &--sub{
+    word-spacing: 0;
+    letter-spacing: 0.5rem;
+        }
+    }
+}
 
     .heading-secondary{
         font-size: 3.5rem;
@@ -51,19 +73,41 @@
         -webkit-background-clip: text;
         color: transparent;
         text-shadow:1rem 1rem 2rem rgba($color-black,0.2) ;
+        @include Respond(phone){
+            font-size: 2rem;
+        }
+    }
+    @include Respond(tab_port){
+        .heading-secondary{
+            font-size: 3.2rem;
+            padding-top: 3rem;
+        margin: 2.5rem 0 0.5rem 1.5rem;
+        }
     }
         
 .heading-tertiary{
             font-size: $font-size-small;
             font-weight: 700;
             text-transform: uppercase;
-            
+            @include Respond(tab_port){
+                font-size: 1.7rem;
+            }
+           
         }
 .paragraph{
             font-size: $font-size-small;
             
             &:not(:last-child){
             margin-bottom: 3rem;
+            }
+            @include Respond(tab_port){
+                
+                &:not(:last-child){
+                    margin-bottom: 3rem;
+                    }
+                &:last-child{
+                    margin-bottom: 1rem;
+                }
             }
         }
     

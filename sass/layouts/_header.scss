@@ -9,7 +9,16 @@
     background-position: top;
     clip-path:polygon(0 0,100% 0,100% 75vh,0 100%) ;
     position: relative;
-
+    //for phone and tab_port bg should be less
+    @include Respond(phone){
+        height: 85vh;
+        margin-bottom: .5rem;
+    }
+    @include Respond(phone){
+        height: 86vh;
+        margin-bottom: .5rem;
+        clip-path:polygon(0 0,100% 0,100% 80vh,0 100%) ;
+    }
 
     &__logobox {
     position:absolute;

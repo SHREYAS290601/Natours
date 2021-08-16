@@ -6,12 +6,29 @@
         box-shadow: 0 2rem 3rem rgba($color-black,0.4);
         border-radius: 2px;
         transition: all 0.2s ease-out;
-        
+        @include Respond (tab_port){
+            width: 80%;
+        }
+        @include Respond(phone){
+            width: 60%;
+        }
         &--p1{
             position: absolute;
-            top: -6.5rem;
+            top: -12.5rem;
             left: 6rem;
             z-index: 1;
+            @include Respond(tab_port){
+                position: inherit;
+                top: 0rem;
+                left: 3rem;
+                z-index: 1;
+            }
+            @include Respond(phone){
+                position: inherit;
+                top: -3.1rem;
+                left: 6.5rem;
+
+            }
             &:hover{
                 z-index: 4;
                 transform: scale(1.05);
@@ -21,8 +38,19 @@
         &--p2{
             position: absolute;
             top: 12rem;
-            left: -2rem;
+            left: -5.5rem;
             z-index: 3;
+            @include Respond(tab_port){
+                position: inherit;
+                top: -12rem;
+                left: -18rem;
+                z-index: 0;
+            }
+            @include Respond(phone){
+                position: inherit;
+                top: -6rem;
+                left: -1rem;
+            }
             &:hover{
                 z-index: 4;
                 transform: scale(1.2);
@@ -30,9 +58,20 @@
         }
         &--p3{
             position: absolute;
-            right: -6.5rem;
+            right: 0rem;
             top: 9rem;
             z-index: 2;
+            @include Respond(tab_port){
+                position: inherit;
+                top: -30rem;
+                right: -27rem;
+                z-index: 3;
+            }
+            @include Respond(phone){
+                position: inherit;
+                top: -9rem;
+                right: -15rem;
+            }
             &:hover{
                 z-index: 4;
                 transform: scale(1.2); 

@@ -11,7 +11,10 @@
         width: 35rem;
         display: block;
         transition: all 0.3s;
-        
+        @include Respond(tab_port){
+            margin-left: 1.5rem;
+            width: 75%;
+        }
         
         &:focus{
             outline: none;
@@ -55,21 +58,34 @@
     }
     &__radio-label{
         font-size: $font-size-small;
+        @include Respond(phone){
+            font-size: 1.5rem;
+        }
         font-weight: 400;
         cursor: pointer;
         position: relative;
         padding-left: 5rem;
+        @include Respond(tab_port){
+            padding-left: 3.5rem;
+        }
     }
 
     &__radio-button{
         height: 3rem;
         width: 3rem;
-        border: 5px solid $color-primary;
+        border: 5px solid $color-primary-dark;
         border-radius: 50%;
         display: inline-block;
         position: absolute;
         top: -.50rem;
         left: 0;
+        @include Respond(tab_port){
+            position: inherit;
+            top: 0.85rem;
+            left: -1.65rem;
+            height: 2.5rem;
+            width: 2.5rem;
+        }
 
         &::after{
             height: 1.3rem;
@@ -80,8 +96,12 @@
             top:50%;
             left: 50%;
             transform: translate(-50%,-50%);
-            background-color: $color-primary;
+            background-color: $color-primary-dark;
             opacity: 0;
+            @include Respond(tab_port){
+                height: 1rem;
+                width: 1rem;
+            }
         }
     }
     &__radio-input:checked ~ &__radio-label &__radio-button::after{
@@ -94,7 +114,12 @@
             border: none;
             background-color:$color-primary-btn-tours;
             color: $color-white;
+            display: inline-block;
             margin-bottom: 5rem;
+            @include Respond(phone){
+                margin-bottom: 0rem;
+                margin-left: 1.5rem;
+            }
             &::after{
                 width: inherit;
                 text-decoration: none;

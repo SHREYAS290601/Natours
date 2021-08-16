@@ -5,3 +5,42 @@
         clear: both;
     }
 }
+
+@mixin CenterElement{
+    position: absolute;
+    left: 50%; top: 50%; transform: translate(-50%,-50%);
+}
+
+
+/*
+100-600:mobile
+600-900:tablet potrait
+900-1200:tablet landscape 
+1200-1800(1920):laptop normal(current)
+1920+:17inch laptop or huge monitors.
+*/
+
+@mixin Respond($breakpoints) {
+
+    @if $breakpoints==phone{
+        @media (max-width:33.3333333333333333333333333333333333333333em) {
+            @content
+        }
+    }
+
+    @if $breakpoints == tab_port{
+        @media (max-width:50.02em) {
+            @content
+        }
+    } 
+    @if $breakpoints == tab_land{
+        @media (max-width:66.667em) {
+            @content
+        }
+    } 
+    @if $breakpoints == Desktop_big{
+        @media (min-width:100em) {
+            @content
+        }
+    }    
+}

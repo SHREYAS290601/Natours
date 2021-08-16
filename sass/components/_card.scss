@@ -51,7 +51,7 @@
         background-size: cover;
         height: 23rem;
         background-blend-mode: screen;
-        -webkit-clip-path: polygon(0 0,100% 0,100% 80%,0 100%);
+        -webkit-clip-path: polygon(0 0,100% 0,100% 85%,0 100%);
         clip-path: polygon(0 0,100% 0,100% 85%,0 100%);
         &--1{
             background-image: linear-gradient(
@@ -83,12 +83,24 @@
         text-align: right;
         color: $color-white;
         width: 75%;
+        @include Respond(tab_port){
+            width: 60%;
+        }
+        @include Respond(phone){
+            width: 55%;
+        }
         }
 
         &__heading-span{
             padding: 0.8rem 1.0rem;
             -webkit-box-decoration-break:clone;
             box-decoration-break: clone;
+            @include Respond(tab_port){
+                -webkit-box-decoration:clone;
+                box-decoration-break: clone;
+                margin-bottom: 1rem;
+                padding: 0.8rem 1.1rem;
+            }
             &--1{
                 background-image: linear-gradient(
                     to right bottom,
@@ -166,5 +178,189 @@
           &::after{
               background-color: inherit;
           }
+       }
+       @include Respond(tab_port){
+           
+    position: relative;
+    perspective: 150rem;
+    -moz-perspective: 150rem;
+    height: auto;
+   &__side{
+    background-color:$color-white;
+    border-radius: 5px;
+    @include Respond(tab_port){
+        border-radius: 5px;
+    }
+    overflow: hidden;
+    box-shadow: 0rem 2rem 4rem 1rem rgba($color-black,0.15);
+    height: auto;
+    transition: all 1.0s ease;
+    position: relative;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    width: 100%;
+   
+    &--back{
+        transform: rotateY(0deg);
+        position: relative;
+        top: -6rem;
+        @include Respond(tab_port){
+            -webkit-clip-path: polygon(0 15%,100% 0,100% 100%,0 100%);
+            clip-path: polygon(0 15%,100% 0,100% 100%,0 100%);
+            }
+    }
+   }
+    &:hover &__side--front{
+    transform: rotateY(0deg) rotateX(0deg);
+    }
+    &__picture{
+        background-size: cover;
+        height: 23rem;
+        background-blend-mode: screen;
+        -webkit-clip-path: polygon(0 0,100% 0,100% 85%,0 100%);
+        clip-path: polygon(0 0,100% 0,100% 85%,0 100%);
+        &--1{
+            background-image: linear-gradient(
+                to  right bottom,
+                ($color-secondary-light),
+                ($color-secondary-dark)), url(../img/nat-5.jpg);
+        }
+        &--2{
+            background-image: linear-gradient(
+            to  right bottom,
+            ($color-primary-light),
+            ($color-primary-dark)), url(../img/nat-6.jpg);
+        }
+        &--3{
+            background-image: linear-gradient(
+                to  right bottom,
+                ($color-tertiary-light),
+                ($color-tertiary-dark)), url(../img/nat-7.jpg);
+        }
+    }
+    &__heading{
+        
+        font-size: 2.8rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        position: absolute;
+        right: 3%;
+        top: 25%;
+        text-align: right;
+        color: $color-white;
+        width: 75%;
+        @include Respond(tab_port){
+            width: 60%;
+        }
+        @include Respond(phone){
+            width: 55%;
+        }
+        }
+
+        &__heading-span{
+            padding: 0.8rem 1.0rem;
+            -webkit-box-decoration-break:clone;
+            box-decoration-break: clone;
+            @include Respond(tab_port){
+                -webkit-box-decoration:clone;
+                box-decoration-break: clone;
+                margin-bottom: 1rem;
+                padding: 0.8rem 1.1rem;
+            }
+            &--1{
+                background-image: linear-gradient(
+                    to right bottom,
+                    rgba($color-secondary-light,0.85),
+                    rgba($color-secondary-dark,0.85));
+            }
+            &--2{
+                background-image: linear-gradient(
+                    to right bottom,
+                    rgba($color-primary-light,0.85),
+                    rgba($color-primary-dark,0.85));
+            }
+            &--3{
+                background-image: linear-gradient(
+                    to right bottom,
+                    rgba($color-tertiary-light,0.85),
+                    rgba($color-tertiary-dark,0.85));
+            }
+        }
+
+        &__details{
+            ul{
+                list-style: none;
+                width: 80%;
+                margin: 0 auto;
+                li{
+                    padding: 1.2rem 0;
+                    text-align: center;
+                    &:not(:last-child){
+                    border-bottom: 1px solid $color-grey-dotted;
+                    }
+                    font-size: 1.5rem;
+                    font-weight: 300;
+                    
+                }
+            }
+            @include Respond(tab_port){
+                font-size: 1.2rem;
+                margin-bottom: 5rem;
+            }
+        }
+        &__cta{
+            position: relative;
+            top: 0%;
+            left: 0;
+            transform:translate(0) ;
+            width: 100%;
+           
+            & .btn{
+                margin-top: 10rem;
+                @include Respond(tab_port){
+                    margin-top: 2rem;
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+        &__price{
+            &-box{
+            color: $color-white;
+            }
+            &-only{
+                font-size: 2rem;
+                font-weight: 400;
+                text-transform: none;
+                margin-bottom: 4rem;
+                @include Respond(tab_port){
+                    margin-top: 4rem;
+                    margin-bottom: 2rem;
+                }
+            }
+            &-value{
+                text-align: center;
+                font-size: 6rem;
+                font-weight: 200;
+                margin-top: 2.5rem;
+                @include Respond(tab_port){
+                    margin-bottom: 2rem;
+                    font-size: 4.5rem;
+                }
+            }
+        }
+
+       &_btn .btn{
+          background-color: $color-primary-btn-tours;
+          color: $color-white;
+          margin-bottom: 4rem;
+          margin-top: 0px;
+          padding-top: 15px;
+          animation: none;
+          &:hover{box-shadow: 0 1rem 2rem rgba($color-black,0.2);}
+          &:active{box-shadow: 0 2rem 3rem rgba($color-black,0.2);}
+          &::after{
+              background-color: inherit;
+          }
+       }
        }
     }

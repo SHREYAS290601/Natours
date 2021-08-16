@@ -5,9 +5,34 @@
 }
 
 html{
-    font-size: 55.55555555%;
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    @include Respond(tab_land){
+        font-size: 56.25%;
+    }
+    @include Respond(tab_port){
+        font-size: 50%;
+    }
+    @include Respond(Desktop_big){
+        font-size: 75%;
+    }
 }
 
 body{
     box-sizing: border-box;
+    padding: 1.5rem;
+
+    @include Respond(tab_port){
+        padding: 0;
+    }
+}
+
+@include Respond(tab_port){
+    html,body{
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+    }
 }

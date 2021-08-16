@@ -7,6 +7,16 @@
     z-index: -1;
     opacity: 0.2;
     overflow: hidden;
+    @include Respond(tab_port){
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+    @include Respond(phone){
+        object-fit:cover;
+        width: 100%;
+        height: 100%;
+    }
     
     &__content{
         width: inherit;
